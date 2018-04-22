@@ -10,8 +10,6 @@ import '../styles/style.scss';
 import Ui from './moduls/ui';
 import ApiHandler from './moduls/apiHandler';
 
-//Create variable for api respond
-let locationData = []
 
 //Initialize ApiHandler class
 const apiHandler = new ApiHandler;
@@ -40,15 +38,16 @@ searchButton.addEventListener('click', (e) => {
                     
                     //Show alert popup that location is unknown
                     ui.showAlert(res.meta.errorDetail, 'alert__message alert alert-danger animated fadeInDown');
-
-                    //Clear input field text
-                    ui.clearInputField(location);
-
+                    
                 }else{
+                    
                     //Show result in the UI #api-response placeholder
-                    console.log(res);
+                    ui.displayVenues(res.response.groups[0].items, location.value)
+                    
                 }
     
+                //Clear input field text
+                ui.clearInputField(location);
             })
 
     }else{

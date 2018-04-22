@@ -7,7 +7,7 @@ export default class ApiHandler{
     }
 
     // Get current day
-    getToday() {
+    getToday() { 
         let today = new Date();
         let dd = today.getDate();
         let mm = today.getMonth() + 1;
