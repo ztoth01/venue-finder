@@ -7,13 +7,29 @@ import '../styles/style.scss';
 
 
 // importing Classes
-import Rectangle from './moduls/rectangle';
+import Ui from './moduls/ui';
+import ApiHandler from './moduls/apiHandler';
 
 
-// creating dummy object
-const rectangle = new Rectangle(10,20);
+//Initialize ApiHandler class
+const apiHandler = new ApiHandler;
 
-// testing area method
-console.log('Rectangle area is:', rectangle.area)
+//Initialize Ui class
+const ui = new Ui;
+
+// Assign Search button
+const searchButton = document.getElementById('search-button');
+
+// Event listener
+searchButton.addEventListener('click', (e) => {
+
+    console.log(e);
+
+});
+
+
+
+
+
 
 
