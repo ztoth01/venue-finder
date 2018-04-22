@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>Venue Finder</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,10 +18,39 @@
 
 </head>
     <body>
-        <section class="">
-            <h1>Hello Starter</h1>
-            <img src="img/logo.png" alt="webpack">
-        </section>
+        
+        <!-- Header -->
+        <div class="bs-component">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a href="#" class="navbar-brand">Venue Finder</a>
+            </nav>
+        </div>
+        <!--// End of Header //-->
+
+        <!-- Main -->
+        <div class="container searchContainer">
+            
+            <div class="search card card-body mt-5 col-md-10 col-lg-8 mx-auto">
+                <h1 class="text-center">Find recommended venues</h1>
+                <p class="lead text-center">Enter the place you're interested in</p>
+                <!-- input field for place -->
+                <input type="text" id="searchUser" class="form-control" placeholder="Name of the place">
+                <br>
+                <!-- button to trigger api call -->
+                <button class="btn btn-success" id="search-button">Find Venues</button>
+            </div>
+
+            <!-- placeholder for api response -->
+            <div class="row result-section" id="api-result"></div>
+
+        </div>  
+        <!--// End of Main // -->
+
+        <!-- Footer  -->
+        <footer class="mt-5 p-3 text-center">
+            Venues Finder &copy;
+        </footer>
+        <!--// End of Footer //-->
 
     </body>
 </html>
