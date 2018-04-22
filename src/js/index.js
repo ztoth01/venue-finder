@@ -10,6 +10,8 @@ import '../styles/style.scss';
 import Ui from './moduls/ui';
 import ApiHandler from './moduls/apiHandler';
 
+//Create variable for api respond
+let locationData = []
 
 //Initialize ApiHandler class
 const apiHandler = new ApiHandler;
@@ -26,8 +28,30 @@ searchButton.addEventListener('click', (e) => {
     //variable for input field
     const location = e.srcElement.previousElementSibling.previousElementSibling;
     
-    apiHandler.getData(location.value)
-        .then(res => { console.log(res)})
+    //Basic validation to make sure input field is not empty
+    if(location.value !== ""){
+
+        apiHandler.getData(location.value)
+            .then(res => {
+                //Validation
+                //If the location.value string is not geocodable, returns a failed_geocode error (400).
+                if(res.meta.code === 400){
+                    //Show alert popup that location is unknown
+                    console.log('Error', res.meta.errorDetail);
+                    
+                }else{
+                    //Show result in the UI #api-response placeholder
+                    console.log(res);
+                }
+    
+            })
+
+    }else{
+
+        //If input filed is empty Show alert popup
+        console.log('Please make sure input field is not empty');
+        
+    }
 
 });
 
