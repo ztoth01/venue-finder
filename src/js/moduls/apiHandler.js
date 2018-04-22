@@ -18,4 +18,11 @@ export default class ApiHandler{
         return today;
     }
 
+    // ES7 async await function for api request using the fetch Api
+    async getData(location){
+        const locationResponse = await fetch(`https://api.foursquare.com/v2/venues/explore?near=${location}&client_id=${this.id}&client_secret=${this.api_key}&v=${this.today}`);
+        const locationJson = await locationResponse.json();
+        return locationJson;
+    }
+
 }

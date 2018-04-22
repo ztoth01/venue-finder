@@ -26,7 +26,8 @@ searchButton.addEventListener('click', (e) => {
     //variable for input field
     const location = e.srcElement.previousElementSibling.previousElementSibling;
     
-    console.log(apiHandler.getToday());
+    apiHandler.getData(location.value)
+        .then(res => { console.log(res)})
 
 });
 
