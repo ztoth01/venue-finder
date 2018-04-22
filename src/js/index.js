@@ -29,6 +29,9 @@ searchButton.addEventListener('click', (e) => {
     //Basic validation to make sure input field is not empty
     if(location.value !== ""){
 
+        //Remove previous api result
+        ui.removePreviousResult()
+
         apiHandler.getData(location.value)
             .then(res => {
                 

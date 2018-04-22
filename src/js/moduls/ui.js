@@ -44,6 +44,14 @@ export default class Ui{
         elem.value = '';
     }
 
+    //Remove previous API result if there is a new search
+    removePreviousResult() {
+        const table = document.getElementById('result-inner') || false;
+        if (table) {
+            table.remove()
+        }
+    }
+
     //Method to display the location data in the Ui
     displayVenues(locationData, searchlocation) {
         //variable for the placeholder
