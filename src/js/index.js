@@ -33,12 +33,17 @@ searchButton.addEventListener('click', (e) => {
 
         apiHandler.getData(location.value)
             .then(res => {
+                
                 //Validation
                 //If the location.value string is not geocodable, returns a failed_geocode error (400).
                 if(res.meta.code === 400){
-                    //Show alert popup that location is unknown
-                    console.log('Error', res.meta.errorDetail);
                     
+                    //Show alert popup that location is unknown
+                    ui.showAlert(res.meta.errorDetail, 'alert__message alert alert-danger animated fadeInDown');
+
+                    //Clear input field text
+                    ui.clearInputField(location);
+
                 }else{
                     //Show result in the UI #api-response placeholder
                     console.log(res);
@@ -49,8 +54,8 @@ searchButton.addEventListener('click', (e) => {
     }else{
 
         //If input filed is empty Show alert popup
-        console.log('Please make sure input field is not empty');
-        
+        ui.showAlert('Plese make sure you enter the location', 'alert__message alert alert-danger animated fadeInDown');
+
     }
 
 });
